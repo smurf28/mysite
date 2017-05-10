@@ -1,0 +1,9 @@
+# IPython log file
+
+get_ipython().magic('logstart bug.py')
+import datetime
+from django.utils import timezone
+from polls.models import Question
+future_question = Question(pub_date=timezone.now() + datetime.timedelta(days=30))
+future_question.was_published_recently()
+get_ipython().magic('logstop')
